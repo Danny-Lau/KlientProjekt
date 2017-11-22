@@ -1,0 +1,25 @@
+.centerBox {
+    height: 300px;
+    width: 50%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.navbar-left a {
+    float: left;
+    color: #fblack;
+    padding: 20px 30px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.navbar-right a {
+    float: right;
+    color: #fblack;
+    padding: 20px 30px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+
