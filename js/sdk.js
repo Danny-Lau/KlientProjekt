@@ -27,7 +27,15 @@ const SDK = {
 
     },
 
+    Quiz:{
+
+    }
+
     User: {
+        current: () => {
+            return SDK.Storage.load("user");
+        }
+
         login: (username, password, cb) => {
             SDK.request({
                 data: {
@@ -67,6 +75,17 @@ const SDK = {
 
             });
         },
+
+        myProfile: () => {
+            SDK.request({
+             method: "GET",
+             url: "/user/myuser" + SDK.User.current().id,
+             headers:{ authorization: SDK.Storage.load("tokenId")
+            }
+        }, cb);
+
+
+
 
         Logout: () => {
             SDK.Storage.remove("userId", data.userId);

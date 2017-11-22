@@ -13,7 +13,7 @@ $(document).ready(() => {
             else if (err) {
                 console.log("Der skete en fejl");
             } else {
-                window.location.href = "myProfile.html";
+                window.location.href = "../navigation.html";
             }
         });
 
