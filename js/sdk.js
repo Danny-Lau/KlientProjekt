@@ -76,7 +76,7 @@ const SDK = {
             });
         },
 
-        myProfile: () => {
+        myProfile: (cb) => {
             SDK.request({
              method: "GET",
              url: "/user/myuser" + SDK.User.current().id,
