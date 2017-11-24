@@ -29,12 +29,18 @@ const SDK = {
 
     Quiz:{
 
-    }
+    },
 
     User: {
         current: () => {
             return SDK.Storage.load("user");
-        }
+        },
+
+        logout: () => {
+            SDK.Storage.remove("userId", data.userId);
+            SDK.Storage.remove("username", data.username);
+            SDK.Storage.remove("password", data.password);
+        },
 
         login: (username, password, cb) => {
             SDK.request({
@@ -78,22 +84,30 @@ const SDK = {
 
         myProfile: (cb) => {
             SDK.request({
-             method: "GET",
-             url: "/user/myuser" + SDK.User.current().id,
-             headers:{ authorization: SDK.Storage.load("tokenId")
+                method: "GET",
+                url: "/user/myuser" + SDK.User.current().id,
+                headers: {
+                    authorization: SDK.Storage.load("token")
+                }
+            }, cb);
+
+        },
+
+        loadNavigation:(cb) => {
+            let currentUser = SDK.User.current();
+
+            if(currentUser) {
+                $("#navigation").load("navigation.html", () => {
+                });
+            } else {
+                $(".navbar-right").html(`
+                  <li><a href="index.html">Log-in <span class="sr-only">(current)</span></a></li>
+          `     );
             }
-        }, cb);
-
-
-
-
-        Logout: () => {
-            SDK.Storage.remove("userId", data.userId);
-            SDK.Storage.remove("username", data.username);
-            SDK.Storage.remove("password", data.password);
-        }
+            $("#logout").click(() => SDK.User.logout());
+                    cb && cb();
+            },
     },
-
 
     Storage: {
         prefix: "EksamensquizSDK",
