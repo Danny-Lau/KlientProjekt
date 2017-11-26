@@ -32,15 +32,6 @@ const SDK = {
     },
 
     User: {
-        current: () => {
-            return SDK.Storage.load("user");
-        },
-
-        logout: () => {
-            SDK.Storage.remove("userId", data.userId);
-            SDK.Storage.remove("username", data.username);
-            SDK.Storage.remove("password", data.password);
-        },
 
         login: (username, password, cb) => {
             SDK.request({
@@ -54,11 +45,35 @@ const SDK = {
 
                 if (err) return cb(err);
 
-                SDK.Storage.persist("username", data.username);
-                SDK.Storage.persist("password", data.password);
+                SDK.Storage.persist("Token", data);
 
                 cb(null, data);
             });
+        },
+
+        loadUser: (cb) => {
+            SDK.request({
+                method: "GET",
+                url: "/user/myuser",
+                headers: {
+                    authorization: SDK.Storage.load("Token"),
+                },
+            }, (err, user) => {
+                if (err) return cb(err);
+                SDK.Storage.persist("User", user);
+                cb(null, user);
+            });
+        },
+
+
+        current: () => {
+            return SDK.Storage.load("user");
+        },
+
+        logout: () => {
+            SDK.Storage.remove("userId", data.userId);
+            SDK.Storage.remove("username", data.username);
+            SDK.Storage.remove("password", data.password);
         },
 
         signup: (username, password, cb) => {
