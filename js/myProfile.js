@@ -1,20 +1,23 @@
 $(document).ready(() => {
 
-    const user = SDK.User.current();
-
-
 
     $(".information").html(`
-    <dl>
-      / <dt>Id</dt>
-        <dd>${SDK.Storage.load("userId")}</dd>
-        
-        <dt>Brugernavn</dt>
-        <dd>${SDK.Storage.load("username")}</dd>
-        
-        <dt>Type</dt>
-        <dd>${SDK.Storage.load("type")}</dd>
-     </dl>
+
+    <table class = "table">
+        <tr>
+            <tr>   
+                <th>ID</th>
+                <th>Brugernavn</th>
+                <th>Type</th>
+            </tr>
+            
+            </tr>
+                <td>${SDK.Storage.load("userId")}</td>
+                <td>${SDK.Storage.load("username")}</td>
+                <td>${SDK.Storage.load("type")}</td>
+            </tr>
+        </Tread>
+     </table>
   `);
 
 
