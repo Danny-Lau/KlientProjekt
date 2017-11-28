@@ -65,7 +65,7 @@ const SDK = {
 
                 let userData = JSON.parse(data);
 
-                SDK.Storage.persist("username",userData.username);
+                SDK.Storage.persist("username", userData.username);
                 SDK.Storage.persist("userId", userData.userId);
                 SDK.Storage.persist("type", userData.type);
 
@@ -81,10 +81,18 @@ const SDK = {
 
         },
 
-        logout: () => {
-            SDK.Storage.remove("userId", data.userId);
-            SDK.Storage.remove("username", data.username);
-            SDK.Storage.remove("password", data.password);
+        logout: (userId, cb) => {
+            SDK.request({
+                url: "/user/logout",
+                method: "POST",
+                data: userId
+
+            }, (err, data) => {
+                if (err) return cb(err);
+
+                cb(err, data);
+
+            });
         },
 
         signup: (username, password, cb) => {
