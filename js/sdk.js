@@ -66,6 +66,8 @@ const SDK = {
                 let userData = JSON.parse(data);
 
                 SDK.Storage.persist("username",userData.username);
+                SDK.Storage.persist("userId", userData.userId);
+                SDK.Storage.persist("type", userData.type);
 
                 cb(null, data);
             });
@@ -73,7 +75,10 @@ const SDK = {
 
 
         current: () => {
-            return SDK.Storage.load("user");
+            return SDK.Storage.load("userId"),
+                SDK.Storage.load("username"),
+                SDK.Storage.load("type");
+
         },
 
         logout: () => {

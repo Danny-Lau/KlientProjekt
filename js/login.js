@@ -1,5 +1,9 @@
 $(document).ready(() => {
 
+    $("#create-user-button").click(() => {
+        window.location.href = "signup.html";
+    });
+
     $("#login-button").click(() => {
 
         const username = $("#inputUsername").val();
@@ -26,11 +30,8 @@ $(document).ready(() => {
             });
         }
 
-        $("#create-user-button").click(() => {
-
-            window.location.href = "signup.html";
-        });
     });
-})
+
+});
 
 

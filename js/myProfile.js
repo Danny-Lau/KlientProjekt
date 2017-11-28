@@ -3,14 +3,17 @@ $(document).ready(() => {
     const user = SDK.User.current();
 
 
+
     $(".information").html(`
     <dl>
-        <dt>Id</dt>
-        <dd>${user.user_id}</dd>
+      / <dt>Id</dt>
+        <dd>${SDK.Storage.load("userId")}</dd>
+        
         <dt>Brugernavn</dt>
-        <dd>${user.username}</dd>
+        <dd>${SDK.Storage.load("username")}</dd>
+        
         <dt>Type</dt>
-        <dd>${user.type}</dd>
+        <dd>${SDK.Storage.load("type")}</dd>
      </dl>
   `);
 
