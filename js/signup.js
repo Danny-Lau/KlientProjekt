@@ -12,7 +12,7 @@ $(document).ready(() => {
         else if (err) {
             console.log("Der skete en fejl")
         } else {
-            window.location.href = "login.html"
+            window.location.href = "index.html"
         }
      });
 

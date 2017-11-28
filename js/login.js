@@ -19,21 +19,8 @@ $(document).ready(() => {
                 }
                 else {
                     SDK.User.loadUser((err, data) => {
-                        if (err && err.xhr.status === 401) {
-                            document.getElementById("error").innerHTML = "Forkert brugernavn eller password";
-                        }
-                        else {
-                            var myUser = JSON.parse(data)
-                            var currentUser = myUser.currentUser;
-                            if (currentUser.type === 1) {
                                 window.location.href = "myProfile.html"
-                            }
-                            else {
-                                alert("Velkommen");
-                                window.location.href = "myProfile.html"
-                            }
-                        }
-                    });
+                   });
                 }
 
             });

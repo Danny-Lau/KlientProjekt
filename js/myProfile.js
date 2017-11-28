@@ -1,20 +1,33 @@
 $(document).ready(() => {
 
-    SDK.User.loadNavigation();
+    const user = SDK.User.current();
 
-    const currentUser = SDK.User.current();
 
-    SDK.User.myProfile((cb) => {
-        $(".my-profile").html(`
-     <dl>
-         <dt>Bruger Id</dt>
-         <dt>${currentUser.id}</dt>
-         <dt>Brugernavn</dt>
-         <dd>${currentUser.username}</dd>
-         <dt>Password</dt>
-         <dd>${currentUser.password}</dd>
-     </dl>    
-    `);
+    $(".information").html(`
+    <dl>
+        <dt>Id</dt>
+        <dd>${user.user_id}</dd>
+        <dt>Brugernavn</dt>
+        <dd>${user.username}</dd>
+        <dt>Type</dt>
+        <dd>${user.type}</dd>
+     </dl>
+  `);
 
+
+    $("#my-profile-button").click(() => {
+        window.location.href = "myProfile.html";
     });
-})
+
+    $("#quiz-button").click(() => {
+        window.location.href = "quiz.html";
+    });
+
+    $("#course-button").click(() => {
+        window.location.href = "course.html";
+    });
+
+
+});
+
+

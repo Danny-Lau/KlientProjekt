@@ -45,7 +45,10 @@ const SDK = {
 
                 if (err) return cb(err);
 
-                SDK.Storage.persist("Token", data);
+                let userdata = JSON.parse(data);
+
+                SDK.Storage.persist("token", userdata);
+
 
                 cb(null, data);
             });
@@ -53,15 +56,18 @@ const SDK = {
 
         loadUser: (cb) => {
             SDK.request({
-                method: "GET",
+                headers: { authorization: SDK.Storage.load("token") },
                 url: "/user/myuser",
-                headers: {
-                    authorization: SDK.Storage.load("Token"),
-                },
-            }, (err, user) => {
+                method: "GET"
+
+            }, (err, data) => {
                 if (err) return cb(err);
-                SDK.Storage.persist("User", user);
-                cb(null, user);
+
+                let userData = JSON.parse(data);
+
+                SDK.Storage.persist("username",userData.username);
+
+                cb(null, data);
             });
         },
 
@@ -97,16 +103,6 @@ const SDK = {
             });
         },
 
-        myProfile: (cb) => {
-            SDK.request({
-                method: "GET",
-                url: "/user/myuser" + SDK.User.current().id,
-                headers: {
-                    authorization: SDK.Storage.load("token")
-                }
-            }, cb);
-
-        },
 
         loadNavigation:(cb) => {
             let currentUser = SDK.User.current();

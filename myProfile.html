@@ -5,29 +5,49 @@
     <link rel="stylesheet" href="css/main.css">
 
     <meta charset="UTF-8">
-    <title>Eksamensquiz</title>
+    <title>Min profile</title>
 </head>
 <body>
 
 <div class="container">
 
-    <div class="row" id="navigation"></div>
+    <div class="navbar">
+            
+        <div class="navbar-left">
+            <a id = "my-profile-button" href="#myProfile">Min profil</a>
+            <a id = "quiz-button" href="#quizes">Quizes </a>
+            <a id = "course-button" href="#courses">Fag </a>
+        </div>
 
-    <div class ="row">
-
-        <div class="col-lg-4 my-profile"></div>
+        <div class="navbar-right">
+            <a href="#logOut"> Log ud</a>
+        </div>
 
     </div>
 
+    <div class = "row">
 
-</div>
+        <div class="col-lg-8 information"></div>
 
+            <table class="table">
+                <thread>
+                    <tr>
+                        <th>ID</th>
+                        <th>Brugernavn</th>
+                        <th>Type</th>
+                    </tr>
+                </thread>
+            </table>
+        </div>
+    </div>
 
-</body>
 
 <script src="lib/js/jquery-3.2.1.js"></script>
 <script src="lib/js/bootstrap.js"></script>
-<scrpit src="lib/js/sdk.js"></scrpit>
-<script src="lib/js/myProfile.js"></script>
+<script src="js/sdk.js"></script>
+<script src="js/myProfile.js"></script>
+
+
+</body>
 
 </html>
