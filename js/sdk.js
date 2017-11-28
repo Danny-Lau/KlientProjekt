@@ -27,6 +27,23 @@ const SDK = {
 
     },
 
+    Course: (cb) => {
+        SDK.request({
+            headers: { authorization: SDK.Storage.load("token") },
+            url: "/course",
+            method: "GET"
+        }, (err, data) => {
+            if (err) return cb(err);
+
+            let courseData = JSON.parse(data);
+
+            SDK.Storage.persist("courseId", courseData.courseID);
+            SDK.Storage.persist("CourseTitle", courseData.courseTitle);
+
+            cb(null, data);
+        });
+    },
+
     Quiz:{
 
     },
