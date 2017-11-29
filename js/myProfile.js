@@ -33,7 +33,7 @@ $(document).ready(() => {
 
     $("#course-button").click(() => {
         SDK.Course((err, data) =>{
-            window.location.href = "course.html";
+            window.location.href = "showCourses.html";
         });
     });
 

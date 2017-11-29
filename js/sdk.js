@@ -35,10 +35,7 @@ const SDK = {
         }, (err, data) => {
             if (err) return cb(err);
 
-            let courseData = JSON.parse(data);
-
-            SDK.Storage.persist("courseId", courseData.courseID);
-            SDK.Storage.persist("CourseTitle", courseData.courseTitle);
+            console.log(data);
 
             cb(null, data);
         });

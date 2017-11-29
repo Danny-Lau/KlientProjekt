@@ -10,12 +10,13 @@ $(document).ready(() => {
             <tr>   
                 <th>ID</th>
                 <th>Fag</th>
-                <Button>vælg</Button>
+                <th>Vælg</th>
             </tr>
             
             </tr>
                 <td>${SDK.Storage.load("courseId")}</td>
                 <td>${SDK.Storage.load("courseTitle")}</td>
+                <td><Button>vælg</Button></td>
             </tr>
         </Tread>
      </table>
