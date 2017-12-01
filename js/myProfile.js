@@ -32,10 +32,11 @@ $(document).ready(() => {
     });
 
     $("#course-button").click(() => {
-        SDK.Course((err, data) =>{
-            window.location.href = "showCourses.html";
+        $("#quiz-button").click(() => {
+            window.location.href = "quiz.html";
         });
     });
+
 
     $("#logout-button").click(() => {
         SDK.User.logout(userId, (err,data) => {

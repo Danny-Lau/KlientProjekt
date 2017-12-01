@@ -2,7 +2,6 @@ const SDK = {
     serverURL:"http://localhost:8080/api",
     request: (options, cb) => {
 
-        event.preventDefault();
         let headers = {};
         if (options.headers) {
             Object.keys(options.headers).forEach((h) => {
@@ -32,12 +31,12 @@ const SDK = {
             headers: { authorization: SDK.Storage.load("token") },
             url: "/course",
             method: "GET"
-        }, (err, data) => {
+        }, (err, course) => {
             if (err) return cb(err);
 
-            console.log(data);
+            console.log(course);
 
-            cb(null, data);
+            cb(null, course);
         });
     },
 
@@ -129,22 +128,6 @@ const SDK = {
 
             });
         },
-
-
-        loadNavigation:(cb) => {
-            let currentUser = SDK.User.current();
-
-            if(currentUser) {
-                $("#navigation").load("navigation.html", () => {
-                });
-            } else {
-                $(".navbar-right").html(`
-                  <li><a href="index.html">Log-in <span class="sr-only">(current)</span></a></li>
-          `     );
-            }
-            $("#logout").click(() => SDK.User.logout());
-                    cb && cb();
-            },
     },
 
     Storage: {

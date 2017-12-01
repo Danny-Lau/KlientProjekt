@@ -14,7 +14,9 @@ $(document).ready(() => {
             alert("Udfyld venligt alle felterne");
         }
         else {
+            event.preventDefault();
             SDK.User.login(username, password, (err, data) => {
+
                 if (err && err.xhr.status === 401) {
                     $(".form-group").addClass("Der opstod en fejl");
                 }
