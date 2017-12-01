@@ -16,9 +16,9 @@ $(document).ready(() => {
                 <div class="panel-body">
                     <div class="col-lg-8">
                       <dl>
-                        <dt>Id</dt>
+                        <dt>ID:</dt>
                         <dd>${course.courseId}</dd>
-                        <dt>Titel</dt>
+                        <dt>Titel:</dt>
                         <dd>${course.courseTitle}</dd>
                       </dl>
                     </div>
@@ -26,7 +26,7 @@ $(document).ready(() => {
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-lg-8 text-right">
-                            <button class="btn btn-success course-btn" data-book-id="${course.courseId}">Vælg</button>
+                            <button class="btn btn-success course-btn" id="${course.courseId}">Vælg</button>
                         </div>
                     </div>
                 </div>
@@ -37,11 +37,11 @@ $(document).ready(() => {
         });
 
         $(".course-btn").click(function(){
-            const courseId = $(this).data("CourseId");
-            const course = courses.find((course) => course.courseId === courseId);
-            SDK.Storage.persist("fag", course)
-
-
+            const currentCourseId = $(this).data.courseId;
+            const course = courses.find((course) => course.courseId === currentCourseId);
+            SDK.Storage.persist(" id fag", data);
+            window.location.href = "showQuizzes.html";
+            
         });
 
     });

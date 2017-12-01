@@ -42,6 +42,21 @@ const SDK = {
 
     Quiz:{
 
+        showQuizzes:(cb) => {
+            SDK.request({
+                headers: { authorization: SDK.Storage.load("token") },
+                url: "/quiz/courseID",
+                method: "GET"
+            }, (err, quizzes) => {
+
+                console.log(quizzes);
+
+                cb(null, quizzes);
+
+            });
+
+        },
+
     },
 
     User: {

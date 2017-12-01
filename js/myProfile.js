@@ -22,22 +22,6 @@ $(document).ready(() => {
      </table>
   `);
 
-
-    $("#my-profile-button").click(() => {
-        window.location.href = "myProfile.html";
-    });
-
-    $("#quiz-button").click(() => {
-        window.location.href = "quiz.html";
-    });
-
-    $("#course-button").click(() => {
-        $("#quiz-button").click(() => {
-            window.location.href = "quiz.html";
-        });
-    });
-
-
     $("#logout-button").click(() => {
         SDK.User.logout(userId, (err,data) => {
             if (err && err.xhr.status === 401) {
@@ -53,5 +37,4 @@ $(document).ready(() => {
         });
 
     });
-
 });
