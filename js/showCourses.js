@@ -26,7 +26,7 @@ $(document).ready(() => {
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-lg-8 text-right">
-                            <button class="btn btn-success course-btn" id="${course.courseId}">Vælg</button>
+                            <button class="btn btn-success course-btn" data-course-id="${course.courseId}">Vælg</button>
                         </div>
                     </div>
                 </div>
@@ -36,17 +36,14 @@ $(document).ready(() => {
 
         });
 
-        $(".course-btn").click(function(){
-            const currentCourseId = $(this).data.courseId;
-            const course = courses.find((course) => course.courseId === currentCourseId);
-            SDK.Storage.persist(" id fag", data);
+        $(".course-btn").click (function() {
+            const currentCourseId = $(this).data("course-id");
+            SDK.Storage.persist(" Current course", currentCourseId);
             window.location.href = "showQuizzes.html";
             
         });
 
     });
-
-
 
 
     $("#logout-button").click(() => {
