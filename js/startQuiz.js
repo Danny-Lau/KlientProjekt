@@ -4,47 +4,42 @@ $(document).ready(() => {
     const userId = currentUser.userId;
 
 
-    SDK.Quiz.showQuizzes((err, data) => {
 
-        let $qList = $("#qList");
-        let quizzes = JSON.parse(data)
+    SDK.Question.loadQuestion((err, data) => {
 
-        quizzes.forEach((quiz) =>{
+        let $cList = $("#cList");
+        let courses = JSON.parse(data)
+
+        courses.forEach((course) =>{
             const courseHTML =` 
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="col-lg-8">
                       <dl>
                         <dt>ID:</dt>
-                        <dd>${quiz.quizId}</dd>
-                        <dt>Title:</dt>
-                        <dd>${quiz.quizTitle}</dd>
-                        <dt>Antal spørgsmål:</dt>
-                        <dd>${quiz.questionCount}</dd>
-                        <dt>Oprettet af: </dt>
-                        <dd>${quiz.createdBy}</dd>
-                        <dt>Beskrivelse: </dt>
-                        <dd>${quiz.quizDescription}</dd>
+                        <dd>${course.courseId}</dd>
+                        <dt>Titel:</dt>
+                        <dd>${course.courseTitle}</dd>
                       </dl>
                     </div>
                 </div>
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-lg-8 text-right">
-                            <button class="btn btn-success quiz-btn" data-quiz-id="${quiz.quizId}">Start quiz</button>
+                            <button class="btn btn-success course-btn" data-course-id="${course.courseId}">Vælg</button>
                         </div>
                     </div>
                 </div>
             </div>`;
 
-            $qList.append(courseHTML);
+            $cList.append(courseHTML);
 
         });
 
-        $(".quiz-btn").click (function() {
-            const currentQuizId = $(this).data("quiz-id");
-            SDK.Storage.persist("currentQuiz", currentQuizId);
-            window.location.href = "startQuiz.html";
+        $(".course-btn").click (function() {
+            const currentCourseId = $(this).data("course-id");
+            SDK.Storage.persist("currentCourse", currentCourseId);
+            window.location.href = "showQuizzes.html";
 
         });
 

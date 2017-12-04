@@ -3,7 +3,9 @@ $(document).ready(() => {
     const currentUser = SDK.User.current();
     const userId = currentUser.userId;
 
-    $(".information").html(`
+    SDK.User.loadUser((err, data) => {
+
+        $(".information").html(`
 
     <table class = "table">
         <tr>
@@ -21,6 +23,7 @@ $(document).ready(() => {
         </Tread>
      </table>
   `);
+    });
 
     $("#logout-button").click(() => {
         SDK.User.logout(userId, (err,data) => {

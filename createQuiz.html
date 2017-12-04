@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="lib/css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <meta charset="UTF-8">
+    <title>Opret quiz</title>
+
+</head>
+<body>
+<div class="container">
+
+    <div class="navbar">
+
+        <div class="navbar-left">
+            <a id = "my-profile-button" href="#myProfile">Min profil</a>
+            <a id = "create-quiz-button" href="createQuiz.html">Opret quiz </a>
+            <a id = "course-button" href="showCourses.html">Fag </a>
+        </div>
+
+        <div class="navbar-right">
+            <a id = "logout-button" href="#logOut"> Log ud</a>
+        </div>
+
+    </div>
+
+    <div class = "row"></div>
+
+
+    <form class="centerBox">
+
+        <h3>Vælg fag</h3>
+
+        <div class="form-group" id="cList"> </div>
+
+
+        <h3>Spørgsmål</h3>
+
+        <div clss="form-group">
+            <input type="Question" class="form-control" id="inputQuestion" placeholder="Spørgsmål">
+        </div>
+
+        <div class="row"></div>
+
+        <h3>Svarmuligheder</h3>
+        <div class="form-group">
+            <input type ="Option" class="form-control" id="correctAnswer" placeholder="Rigtig svarmulighed">
+        </div>
+
+        <div class="form-group">
+            <input type ="Option" class="form-control" id="wrongAnswer1" placeholder="Forkert svarmulighed">
+        </div>
+
+        <div class="form-group">
+            <input type ="Option" class="form-control" id="wrongAnswer2" placeholder="Forkert svarmulighed">
+        </div>
+
+        <div class="form-group">
+            <input type ="Option" class="form-control" id="wrongAnswer3" placeholder="Forkert svarmulighed">
+        </div>
+
+        <button class="btn btn-primary btn-sm" id="next-question">Nyt spørgsmål</button>
+
+        <button class="btn btn-primary btn-sm" id="finish">færdig</button>
+
+    </form>
+</div>
+
+
+<script src="lib/js/jquery-3.2.1.js"></script>
+<script src="lib/js/bootstrap.js"></script>
+<script src="js/sdk.js"></script>
+<script src="js/createQuiz.js"></script>
+
+</body>
+</html>

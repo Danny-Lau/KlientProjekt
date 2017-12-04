@@ -40,24 +40,6 @@ const SDK = {
         });
     },
 
-    Quiz:{
-
-        showQuizzes:(cb) => {
-            SDK.request({
-                headers: { authorization: SDK.Storage.load("token") },
-                url: "/quiz/courseID",
-                method: "GET"
-            }, (err, quizzes) => {
-
-                console.log(quizzes);
-
-                cb(null, quizzes);
-
-            });
-
-        },
-
-    },
 
     User: {
 
@@ -141,6 +123,43 @@ const SDK = {
 
              cb(null, data);
 
+            });
+        },
+    },
+    Quiz:{
+
+        showQuizzes:(cb) => {
+
+            const currentCourseID = SDK.Storage.load("currentCourse");
+            SDK.request({
+                headers: { authorization: SDK.Storage.load("token") },
+                url: "/quiz/" + currentCourseID,
+                method: "GET"
+            }, (err, quizzes) => {
+
+                console.log(quizzes);
+
+                cb(null, quizzes);
+
+            });
+
+        },
+
+    },
+
+    Question: {
+        loadQuestion: (cb) => {
+
+            const currentQuizId = SDK.Storage.load("currentQuiz")
+            SDK.request({
+                headers: { authorization: SDK.Storage.load("token") },
+                url: "/question/" + currentQuizId,
+                method: "GET"
+            }, (err, questions) => {
+
+                console.log(questions);
+
+                cb(null, questions);
             });
         },
     },

@@ -38,7 +38,7 @@ $(document).ready(() => {
 
         $(".course-btn").click (function() {
             const currentCourseId = $(this).data("course-id");
-            SDK.Storage.persist(" Current course", currentCourseId);
+            SDK.Storage.persist("currentCourse", currentCourseId);
             window.location.href = "showQuizzes.html";
             
         });
@@ -63,5 +63,3 @@ $(document).ready(() => {
         });
 
     });
-
-
