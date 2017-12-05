@@ -147,6 +147,24 @@ const SDK = {
 
     },
 
+    Option: {
+        createOption: (option, cb) => {
+            SDK.request({
+                data:{
+                    option: option
+                },
+                headers: {authorization: SDK.Storage.load("token")},
+                url: "/option",
+                method: "POST"
+            }, (err, data) => {
+
+                cb(null, data);
+
+            });
+
+        },
+    },
+
     Question: {
         loadQuestion: (cb) => {
 
@@ -161,6 +179,22 @@ const SDK = {
 
                 cb(null, questions);
             });
+        },
+
+        createQuestion:(question, cb) => {
+            SDK.request({
+                data: {
+                    question: question
+                },
+                headers: {authorization: SDK.Storage.load("token")},
+                url: "/question",
+                method: "POST"
+            }, (err, data) => {
+
+                cb(null, data);
+
+            });
+
         },
     },
 

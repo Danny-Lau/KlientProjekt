@@ -25,7 +25,7 @@ $(document).ready(() => {
                 }
                 else {
                     SDK.User.loadUser((err, data) => {
-                        window.location.href = "myProfile.html"
+                                window.location.href = "myProfile.html"
                    });
                 }
 
