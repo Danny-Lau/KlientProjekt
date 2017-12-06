@@ -127,6 +127,26 @@ const SDK = {
         },
     },
     Quiz:{
+        createQuiz: (createdBy, questionCount, quizTitle, description, courseId, cb) => {
+            SDK.request({
+                data: {
+                    createdBy: createdBy,
+                    questionCount: questionCount,
+                    quizTitle: quizTitle,
+                    description: quizDescription,
+                    courseId: courseId
+                },
+                url: "/quiz",
+                method: "POST",
+                headers: {
+                    authorization: SDK.Storage.load("Token"),
+                }
+            }, (err, data) => {
+
+                cb(null, data);
+            })
+        },
+
 
         showQuizzes:(cb) => {
 
@@ -148,10 +168,12 @@ const SDK = {
     },
 
     Option: {
-        createOption: (option, cb) => {
+        createOption: (option, correctAnswer, optionId, cb) => {
             SDK.request({
                 data:{
-                    option: option
+                    option: option,
+                    correctAnswer: correctAnswer,
+                    optionId: optionId
                 },
                 headers: {authorization: SDK.Storage.load("token")},
                 url: "/option",
@@ -181,10 +203,11 @@ const SDK = {
             });
         },
 
-        createQuestion:(question, cb) => {
+        createQuestion:(question, questionId, cb) => {
             SDK.request({
                 data: {
-                    question: question
+                    question: question,
+                    questionId: questionId
                 },
                 headers: {authorization: SDK.Storage.load("token")},
                 url: "/question",
