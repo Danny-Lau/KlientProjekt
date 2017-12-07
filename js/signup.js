@@ -12,6 +12,7 @@ $(document).ready(() => {
         else if (err) {
             console.log("Der skete en fejl")
         } else {
+            event.preventDefault();
             window.location.href = "index.html"
         }
      });

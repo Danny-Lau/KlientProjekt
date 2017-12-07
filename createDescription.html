@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <link rel="stylesheet" href="lib/css/bootstrap.css">
     <link rel="stylesheet" href="css/main.css">
 
     <meta charset="UTF-8">
-    <title>Fag</title>
+    <title>Opret quiz</title>
+
 </head>
 <body>
+
 
 <div class="container">
 
@@ -25,19 +28,31 @@
 
     </div>
 
-    <div class="row">
-        <h4>Vælg et fag du vil oprette en quiz til</h4>
-    <div class = "row" id="cList"> </div>
-    </div>
-</div>
+    <form class="centerBox">
 
+        <div class="row">
+
+            <h3>Quiz beskrivelse</h3>
+
+            <div class="form-group">
+                <input type="text" class="form-control" id="inputNewQuizTitle" placeholder="Titel">
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" id="inputDescription" placeholder="Quiz beskrivelse">
+            </div>
+
+            <button class="btn btn-primary btn-sm" id="continue-button">Fotsæt</button>
+         </div>
+
+</form>
+
+</div>
 
 <script src="lib/js/jquery-3.2.1.js"></script>
 <script src="lib/js/bootstrap.js"></script>
 <script src="js/sdk.js"></script>
-<script src="js/createQuiz.js"></script>
-
+<script src="js/createDescription.js"></script>
 
 </body>
-
 </html>

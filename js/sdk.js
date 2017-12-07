@@ -117,9 +117,11 @@ const SDK = {
 
              if (err) return cb(err);
 
-             SDK.Storage.persist("userId", data.userId);
-             SDK.Storage.persist("username", data.username);
-             SDK.Storage.persist("password", data.password);
+             let userdata = JSON.parse(data);
+
+             SDK.Storage.persist("userId", userdata.userId);
+             SDK.Storage.persist("username", userdata.username);
+             SDK.Storage.persist("password", userdata.password);
 
              cb(null, data);
 
@@ -127,21 +129,25 @@ const SDK = {
         },
     },
     Quiz:{
-        createQuiz: (createdBy, questionCount, quizTitle, description, courseId, cb) => {
+        createQuiz: (createdBy, questionCount, quizTitle, quizDescription, courseId, cb) => {
             SDK.request({
                 data: {
                     createdBy: createdBy,
                     questionCount: questionCount,
                     quizTitle: quizTitle,
-                    description: quizDescription,
+                    quizDescription: quizDescription,
                     courseId: courseId
+                },
+                headers: {
+                    authorization: SDK.Storage.load("token"),
                 },
                 url: "/quiz",
                 method: "POST",
-                headers: {
-                    authorization: SDK.Storage.load("Token"),
-                }
             }, (err, data) => {
+
+                let userdata = JSON.parse(data);
+
+                SDK.Storage.persist("newQuizId", userdata.quizId);
 
                 cb(null, data);
             })
@@ -168,12 +174,12 @@ const SDK = {
     },
 
     Option: {
-        createOption: (option, correctAnswer, optionId, cb) => {
+        createOption: (option, optionToQuestionId, isCorrect,  cb) => {
             SDK.request({
                 data:{
                     option: option,
-                    correctAnswer: correctAnswer,
-                    optionId: optionId
+                    optionToQuestionId: optionToQuestionId,
+                    isCorrect: isCorrect
                 },
                 headers: {authorization: SDK.Storage.load("token")},
                 url: "/option",
@@ -203,16 +209,24 @@ const SDK = {
             });
         },
 
-        createQuestion:(question, questionId, cb) => {
+        createQuestion:(question, questionToQuizId, cb) => {
             SDK.request({
                 data: {
                     question: question,
-                    questionId: questionId
+                    questionToQuizId: questionToQuizId
                 },
-                headers: {authorization: SDK.Storage.load("token")},
+                headers: {
+                    authorization: SDK.Storage.load("token")
+                },
                 url: "/question",
                 method: "POST"
             }, (err, data) => {
+
+                console.log(data);
+
+                let questionData = JSON.parse(data);
+
+                SDK.Storage.persist("newQuestionId", questionData.questionId);
 
                 cb(null, data);
 

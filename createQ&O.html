@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="lib/css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <meta charset="UTF-8">
+    <title>Opret quiz</title>
+
+</head>
+<body>
+<div class="container">
+
+    <div class="navbar">
+
+        <div class="navbar-left">
+            <a id = "my-profile-button" href="#myProfile">Min profil</a>
+            <a id = "create-quiz-button" href="createQuiz.html">Opret quiz </a>
+            <a id = "course-button" href="showCourses.html">Fag </a>
+        </div>
+
+        <div class="navbar-right">
+            <a id = "logout-button" href="#logOut"> Log ud</a>
+        </div>
+
+    </div>
+    <form class="centerBox">
+
+
+        <div class="row">
+
+            <h3>Spørgsmål</h3>
+
+            <div class="form-group">
+                <input type="text" class="form-control" id="inputQuestion" placeholder="Spørgsmål">
+            </div>
+
+            <h3>Svarmuligheder</h3>
+
+            <div class="form-group">
+                <input type ="text" class="form-control" id="correctAnswer" placeholder="Rigtig svarmulighed">
+            </div>
+
+            <div class="form-group">
+                <input type ="text" class="form-control" id="wrongAnswer1" placeholder="Forkert svarmulighed">
+            </div>
+
+            <div class="form-group">
+                <input type ="text" class="form-control" id="wrongAnswer2" placeholder="Forkert svarmulighed">
+            </div>
+
+            <div class="form-group">
+                <input type ="text" class="form-control" id="wrongAnswer3" placeholder="Forkert svarmulighed">
+            </div>
+
+            <button class="btn btn-primary btn-sm" id="next-question-btn">Nyt spørgsmål</button>
+
+            <button class="btn btn-primary btn-sm" id="finish-btn">Færdig</button>
+
+        </div>
+
+
+    </form>
+
+</div>
+
+<script src="lib/js/jquery-3.2.1.js"></script>
+<script src="lib/js/bootstrap.js"></script>
+<script src="js/sdk.js"></script>
+<script src="js/createQ&O.js"></script>
+
+</body>
+</html>
