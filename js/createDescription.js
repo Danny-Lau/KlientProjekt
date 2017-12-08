@@ -2,15 +2,22 @@ $(document).ready(() => {
 
     $("#continue-button").click(() => {
 
-        const createdBy = SDK.Storage.load("username");
-        const questionCount = 1;
-        const title = $("#inputNewQuizTitle").val();
-        const description = $("#inputDescription").val();
-        const courseId = SDK.Storage.load("newCourseId");
+        var createdBy = SDK.Storage.load("username");
+        var questionCount = $("#inputQuestionCount").val();
+        var title = $("#inputNewQuizTitle").val();
+        var description = $("#inputDescription").val();
+        var courseId = SDK.Storage.load("newCourseId");
 
 
-        if (!title || !description) {
+        if (!title || !description || !questionCount) {
             alert("Udfyld venligt alle felterne");
+        }
+        else if (isNaN(questionCount)){
+            alert("Antal spørgsmål skal være et tal");
+        }
+        else if (questionCount < 1) {
+            alert("Der kan ikke være 0 spørgsmål")
+
         }
         else {
             event.preventDefault();
@@ -23,6 +30,8 @@ $(document).ready(() => {
 
                 } else {
                     event.preventDefault();
+                    SDK.Storage.persist("inputQuestionCount", questionCount);
+                    SDK.Storage.persist("newQuizTitle", title);
                     window.location.href = "createQ&O.html";
 
 
