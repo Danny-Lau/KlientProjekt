@@ -173,6 +173,7 @@ const SDK = {
 
     },
 
+
     Option: {
         createOption: (option, optionToQuestionId, isCorrect,  cb) => {
             SDK.request({
@@ -186,17 +187,37 @@ const SDK = {
                 method: "POST"
             }, (err, data) => {
 
+
                 cb(null, data);
 
             });
 
         },
+
+        loadOption:(cb) => {
+
+            const currentQuestionId = SDK.Storage.load("currentQuestionId");
+
+            SDK.request({
+                headers: {authorization: SDK.Storage.load("token")},
+                url: "/option/" + currentQuestionId,
+                method: "GET"
+
+            }, (err, option) => {
+
+                cb(null, option);
+            });
+        },
+
     },
+
+
 
     Question: {
         loadQuestion: (cb) => {
 
             const currentQuizId = SDK.Storage.load("currentQuiz")
+
             SDK.request({
                 headers: { authorization: SDK.Storage.load("token") },
                 url: "/question/" + currentQuizId,

@@ -7,7 +7,7 @@ $(document).ready(() => {
     SDK.Quiz.showQuizzes((err, data) => {
 
         let $qList = $("#qList");
-        let quizzes = JSON.parse(data)
+        let quizzes = JSON.parse(data);
 
         quizzes.forEach((quiz) =>{
             const courseHTML =` 
