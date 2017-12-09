@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2937a4be-e3bb-4213-b151-80643f49e427" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/createQ&amp;O.html" afterPath="$PROJECT_DIR$/createQ&amp;O.html" />
-      <change beforePath="$PROJECT_DIR$/js/createQ&amp;O.js" afterPath="$PROJECT_DIR$/js/createQ&amp;O.js" />
-      <change beforePath="$PROJECT_DIR$/js/sdk.js" afterPath="$PROJECT_DIR$/js/sdk.js" />
-      <change beforePath="$PROJECT_DIR$/js/showQuizzes.js" afterPath="$PROJECT_DIR$/js/showQuizzes.js" />
       <change beforePath="$PROJECT_DIR$/js/startQuiz.js" afterPath="$PROJECT_DIR$/js/startQuiz.js" />
-      <change beforePath="$PROJECT_DIR$/startQuiz.html" afterPath="$PROJECT_DIR$/startQuiz.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,11 +19,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="34" column="6" lean-forward="true" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
+            <state relative-caret-position="130">
+              <caret line="21" column="31" lean-forward="true" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sdk.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/sdk.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="530">
+              <caret line="175" column="0" lean-forward="false" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -45,27 +49,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="startQuiz.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="startQuiz.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/startQuiz.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="33" column="124" lean-forward="false" selection-start-line="33" selection-start-column="124" selection-end-line="33" selection-end-column="124" />
+            <state relative-caret-position="250">
+              <caret line="53" column="11" lean-forward="true" selection-start-line="53" selection-start-column="11" selection-end-line="58" selection-end-column="52" />
               <folding>
-                <marker date="1512765549000" expanded="true" signature="400:725" ph="..." />
-                <marker date="1512765549000" expanded="true" signature="440:724" ph="..." />
-                <marker date="1512765549000" expanded="true" signature="483:701" ph="..." />
-                <marker date="1512765549000" expanded="true" signature="510:617" ph="..." />
-                <marker date="1512765549000" expanded="true" signature="510:674" ph="..." />
+                <marker date="1512855308000" expanded="true" signature="400:725" ph="..." />
+                <marker date="1512855308000" expanded="true" signature="440:724" ph="..." />
+                <marker date="1512855308000" expanded="true" signature="483:701" ph="..." />
+                <marker date="1512855308000" expanded="true" signature="510:617" ph="..." />
+                <marker date="1512855308000" expanded="true" signature="510:674" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="startQuiz.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/startQuiz.html">
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+            <state relative-caret-position="269">
+              <caret line="27" column="32" lean-forward="false" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="71" />
               <folding />
             </state>
           </provider>
@@ -168,10 +172,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="440" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="45" />
     <option name="y" value="23" />
-    <option name="width" value="840" />
+    <option name="width" value="1235" />
     <option name="height" value="708" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -289,18 +293,18 @@
       <workItem from="1512583932060" duration="8283000" />
       <workItem from="1512596724884" duration="4089000" />
       <workItem from="1512600997814" duration="34350000" />
-      <workItem from="1512729158621" duration="22797000" />
+      <workItem from="1512729158621" duration="27871000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="236655000" />
+    <option name="totallyTimeSpent" value="241729000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="708" extended-state="6" />
+    <frame x="45" y="23" width="1235" height="708" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17394757" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1803954" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.045677" sideWeight="0.50326186" order="8" side_tool="true" content_ui="tabs" />
@@ -508,14 +512,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="27" column="32" lean-forward="false" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/playQuizHandler.js" />
     <entry file="file://$PROJECT_DIR$/playQuiz.html" />
     <entry file="file://$PROJECT_DIR$/showQuizzes.html">
@@ -590,9 +586,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/startQuiz.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/createQ&amp;O.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
+        <state relative-caret-position="-1221">
           <caret line="15" column="35" lean-forward="true" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
           <folding />
         </state>
@@ -600,8 +604,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/showCourses.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="20" lean-forward="true" selection-start-line="14" selection-start-column="12" selection-end-line="32" selection-end-column="20" />
+        <state relative-caret-position="423">
+          <caret line="32" column="20" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="32" selection-end-column="20" />
           <folding>
             <marker date="1512743704000" expanded="true" signature="334:1048" ph="..." />
             <marker date="1512743704000" expanded="true" signature="334:1067" ph="..." />
@@ -619,30 +623,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/startQuiz.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/sdk.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1027">
-          <caret line="175" column="0" lean-forward="false" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="34" column="6" lean-forward="true" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/createQ&amp;O.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="373">
@@ -651,17 +631,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="27" column="32" lean-forward="false" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/sdk.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="175" column="0" lean-forward="false" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/startQuiz.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="33" column="124" lean-forward="false" selection-start-line="33" selection-start-column="124" selection-end-line="33" selection-end-column="124" />
+        <state relative-caret-position="250">
+          <caret line="53" column="11" lean-forward="true" selection-start-line="53" selection-start-column="11" selection-end-line="58" selection-end-column="52" />
           <folding>
-            <marker date="1512765549000" expanded="true" signature="400:725" ph="..." />
-            <marker date="1512765549000" expanded="true" signature="440:724" ph="..." />
-            <marker date="1512765549000" expanded="true" signature="483:701" ph="..." />
-            <marker date="1512765549000" expanded="true" signature="510:617" ph="..." />
-            <marker date="1512765549000" expanded="true" signature="510:674" ph="..." />
+            <marker date="1512855308000" expanded="true" signature="400:725" ph="..." />
+            <marker date="1512855308000" expanded="true" signature="440:724" ph="..." />
+            <marker date="1512855308000" expanded="true" signature="483:701" ph="..." />
+            <marker date="1512855308000" expanded="true" signature="510:617" ph="..." />
+            <marker date="1512855308000" expanded="true" signature="510:674" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="21" column="31" lean-forward="true" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>

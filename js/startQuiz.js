@@ -24,6 +24,7 @@ $(document).ready(() => {
 
             SDK.Storage.persist("currentQuestionId", question.questionId);
 
+
             SDK.Option.loadOption((err, option) => {
 
                 const $optionList = $('#optionList' + question.questionId);
@@ -31,33 +32,33 @@ $(document).ready(() => {
 
                 options.forEach((option) => {
                    $optionList.append(`
-                   <input type="radio" class="optionToQuestion" name="${question.questionId}" value="${option.isCorrect}"> t${option.option}<br>
+                   <input type="radio" class="option-to-question" name="${question.questionId}" value="${option.isCorrect}"> ${option.option}<br>
                 `);
 
                 });
-
             });
-
         });
-});
+
         $("#finish-quiz-button").click(() => {
             let numberOfCorrects = 0;
-            let numberOfWrongs = 0;
 
-            $(".option-answer").each(function () {
-                let optionValue = $(this).data("OptionValue");
+            $(".option-to-question").each(function () {
 
-                if (optionValue == 1) {
+                if ($(this).is(":checked") && $(this).val() == 1) {
                     numberOfCorrects++;
 
-                } else {
-                    numberOfWrongs++;
 
                 }
-
             });
 
+            alert("Du fik " + numberOfCorrects + " rigtige ud af " +  numberOfQuestion);
+            SDK.Storage.remove("currentCourse");
+            SDK.Storage.remove("currentQuizId");
+            SDK.Storage.remove("currentQuestionId");
+
+            window.location.href = "myProfile.html";
         });
+    });
 
 
         $("#logout-button").click(() => {
