@@ -101,7 +101,7 @@ $(document).ready(() => {
                                                       bliver fjernet fra browseren local storage
                                                      */
 
-                                                    alert("Din quiz" + SDK.Storage.load("newQuizTitle") +
+                                                    alert("Din quiz " + SDK.Storage.load("newQuizTitle") +
                                                         " med " + SDK.Storage.load("inputQuestionCount") + " Spørgsmål er nu oprettet");
 
                                                     window.location.href = "myProfile.html";
@@ -122,5 +122,22 @@ $(document).ready(() => {
                 });
             }
         });
+    });
+    //Metode til at logge ud
+    $("#logout-button").click(() => {
+        const userId = SDK.Storage.load("userId");
+        SDK.User.logout(userId, (err, data) => {
+            if (err && err.xhr.status === 401) {
+                $(".form-group").addClass("Der opstod en fejl");
+            }
+            else {
+                window.location.href = "index.html";
+                SDK.Storage.remove("token");
+                SDK.Storage.remove("userId");
+                SDK.Storage.remove("username");
+                SDK.Storage.remove("type");
+            }
+        });
+
     });
 });

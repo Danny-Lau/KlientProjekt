@@ -26,23 +26,9 @@ const SDK = {
 
     },
 
-    Course: (cb) => {
-        SDK.request({
-            headers: { authorization: SDK.Storage.load("token") },
-            url: "/course",
-            method: "GET"
-        }, (err, course) => {
-            if (err) return cb(err);
-
-            console.log(course);
-
-            cb(null, course);
-        });
-    },
-
 
     User: {
-
+        // Request til login
         login: (username, password, cb) => {
             SDK.request({
                 data: {
@@ -64,6 +50,7 @@ const SDK = {
             });
         },
 
+        // Request til at hente den nuværende brugers oplysninger
         loadUser: (cb) => {
             SDK.request({
                 headers: { authorization: SDK.Storage.load("token") },
@@ -83,14 +70,7 @@ const SDK = {
             });
         },
 
-
-        current: () => {
-            return SDK.Storage.load("userId");
-                SDK.Storage.load("username");
-                SDK.Storage.load("type");
-
-        },
-
+        //Request til at logout
         logout: (userId, cb) => {
             SDK.request({
                 data:{ userId: userId
@@ -106,6 +86,7 @@ const SDK = {
             });
         },
 
+        //Request til at oprette ny bruger
         signup: (username, password, cb) => {
             SDK.request({
                 data: {
@@ -129,7 +110,22 @@ const SDK = {
             });
         },
     },
+
+    // Request til at hente fagene ned
+    Course: (cb) => {
+        SDK.request({
+            headers: { authorization: SDK.Storage.load("token") },
+            url: "/course",
+            method: "GET"
+        }, (err, course) => {
+            if (err) return cb(err);
+
+            cb(null, course);
+        });
+    },
+
     Quiz:{
+        //Request til at oprette quiz
         createQuiz: (createdBy, questionCount, quizTitle, quizDescription, courseId, cb) => {
             SDK.request({
                 data: {
@@ -154,7 +150,7 @@ const SDK = {
             })
         },
 
-
+        //request til at vise quiz
         showQuizzes:(cb) => {
 
             const currentCourseID = SDK.Storage.load("currentCourse");
@@ -164,14 +160,13 @@ const SDK = {
                 method: "GET"
             }, (err, quizzes) => {
 
-                console.log(quizzes);
-
                 cb(null, quizzes);
 
             });
 
         },
 
+        //Metode til at slette quiz
         deleteQuiz:(cb) => {
             const quizId = SDK.Storage.load("deleteId");
             SDK.request({
@@ -188,6 +183,8 @@ const SDK = {
     },
 
     Option: {
+
+        //Request til at oprette options
         createOption: (option, optionToQuestionId, isCorrect,  cb) => {
             SDK.request({
                 data:{
@@ -207,6 +204,7 @@ const SDK = {
 
         },
 
+        //Request til at hente options
         loadOption:(cb) => {
 
             const currentQuestionId = SDK.Storage.load("currentQuestionId");
@@ -225,8 +223,9 @@ const SDK = {
     },
 
 
-
     Question: {
+
+        //Request til at hente spørgsmål
         loadQuestion: (cb) => {
 
             const currentQuizId = SDK.Storage.load("currentQuiz")
@@ -237,12 +236,11 @@ const SDK = {
                 method: "GET"
             }, (err, questions) => {
 
-                console.log(questions);
-
                 cb(null, questions);
             });
         },
 
+        //Request til at oprette spørgsmål
         createQuestion:(question, questionToQuizId, cb) => {
             SDK.request({
                 data: {
@@ -255,8 +253,6 @@ const SDK = {
                 url: "/question",
                 method: "POST"
             }, (err, data) => {
-
-                console.log(data);
 
                 let questionData = JSON.parse(data);
 

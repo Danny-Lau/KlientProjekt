@@ -1,15 +1,12 @@
 $(document).ready(() => {
 
-    const currentUser = SDK.User.current();
-    const userId = currentUser.userId;
-
-
-
+    //Henter aller fagene
     SDK.Course((err, data) => {
 
         let $cList = $("#cList");
         let courses = JSON.parse(data)
 
+        //For hver fag, skal der være titel og ID
         courses.forEach((course) =>{
             const courseHTML =` 
             <div class="panel panel-default">
@@ -36,6 +33,7 @@ $(document).ready(() => {
 
         });
 
+        //Når man vælger et fag, skal fages ID hentes ned
         $(".course-btn").click (function() {
             const currentCourseId = $(this).data("course-id");
             SDK.Storage.persist("currentCourse", currentCourseId);
@@ -46,20 +44,22 @@ $(document).ready(() => {
     });
 
 
+    //Metode til at logge ud
     $("#logout-button").click(() => {
-            SDK.User.logout(userId, (err, data) => {
-                if (err && err.xhr.status === 401) {
-                    $(".form-group").addClass("Der opstod en fejl");
-                }
-                else {
-                    window.location.href = "index.html";
-                    SDK.Storage.remove("token");
-                    SDK.Storage.remove("userId");
-                    SDK.Storage.remove("username");
-                    SDK.Storage.remove("type");
-                }
-            });
 
+        const userId = SDK.Storage.load("userId");
+        SDK.User.logout(userId, (err, data) => {
+
+            if (err && err.xhr.status === 401) {
+                $(".form-group").addClass("Der opstod en fejl");
+            }
+            else {
+                window.location.href = "index.html";
+                SDK.Storage.remove("token");
+                SDK.Storage.remove("userId");
+                SDK.Storage.remove("username");
+                SDK.Storage.remove("type");
+            }
         });
-
     });
+});

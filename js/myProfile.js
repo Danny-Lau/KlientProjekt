@@ -1,30 +1,54 @@
 $(document).ready(() => {
 
-    const userId = SDK.Storage.load("userId");
-   // const userId = currentUser.userId;
+    //Henter brugeroplysningerne ned. Oplysninger bliver sat ind i tabellen senere
+    SDK.User.loadUser(() => {
+        const type =SDK.Storage.load("type");
 
-    SDK.User.loadUser((err, data) => {
+        if(type == 1) {
 
-        $(".information").html(`
+            $(".information").html(`
 
-    <table class = "table">
-        <tr>
-            <tr>   
-                <th>ID</th>
-                <th>Brugernavn</th>
-                <th>Type</th>
-            </tr>
+                <table class = "table">
+                <tr>
+                    <tr>   
+                        <th>ID</th>
+                        <th>Brugernavn</th>
+                        <th>Type</th>
+                    </tr>
             
-            </tr>
-                <td>${SDK.Storage.load("userId")}</td>
-                <td>${SDK.Storage.load("username")}</td>
-                <td>${SDK.Storage.load("type")}</td>
-            </tr>
-        </Tread>
-     </table>
-  `);
+                    </tr>
+                        <td>${SDK.Storage.load("userId")}</td>
+                        <td>${SDK.Storage.load("username")}</td>
+                        <td>Administrator</td>
+                </tr>
+                </Tread>
+                </table>
+            `);
+
+        } else {
+            $(".information").html(`
+
+                <table class = "table">
+                <tr>
+                    <tr>   
+                        <th>ID</th>
+                        <th>Brugernavn</th>
+                        <th>Type</th>
+                    </tr>
+            
+                    </tr>
+                        <td>${SDK.Storage.load("userId")}</td>
+                        <td>${SDK.Storage.load("username")}</td>
+                        <td>Normal bruger</td>
+                </tr>
+                </Tread>
+                </table>
+            `);
+
+        }
     });
 
+    //klik på logout
     $("#logout-button").click(() => {
 
         const userId = SDK.Storage.load("userId");
@@ -33,6 +57,7 @@ $(document).ready(() => {
                 $(".form-group").addClass("Der opstod en fejl");
             }
             else {
+                //brugeren bliver sendt til forsiden. og oplysningerne bliver slettet fra local storage
                 window.location.href = "index.html";
                 SDK.Storage.remove("token");
                 SDK.Storage.remove("userId");

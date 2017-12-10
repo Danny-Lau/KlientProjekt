@@ -1,14 +1,13 @@
 $(document).ready(() => {
 
-    const currentUser = SDK.User.current();
-    const userId = currentUser.userId;
 
-
+    // Henter alle quizzene ned
     SDK.Quiz.showQuizzes((err, data) => {
 
         let $qList = $("#qList");
         let quizzes = JSON.parse(data);
 
+        //For hver quiz skal parameterne id, title, antal spørgsmål, oprettet af og beskrivelse vises
         quizzes.forEach((quiz) =>{
             const courseHTML =` 
             <div class="panel panel-default">
@@ -41,7 +40,7 @@ $(document).ready(() => {
             $qList.append(courseHTML);
 
         });
-
+        // Når man vælger en quiz, skal quizzens ID hentes ned
         $(".quiz-btn").click (function() {
             const currentQuizId = $(this).data("quiz-id");
             SDK.Storage.persist("currentQuiz", currentQuizId);
@@ -49,29 +48,38 @@ $(document).ready(() => {
 
         });
 
+        //Bruger quizzens Id til at slette quizzen
         $(".deleteQuiz-btn").click(function() {
             const deleteQuizId = $(this).data("delete-quiz-id");
             SDK.Storage.persist("deleteId", deleteQuizId);
+            const type = SDK.Storage.load("type");
 
-            SDK.Quiz.deleteQuiz((err, data) => {
+            //Tjekke om brugeren er Administrator
+            if (type == 1) {
+                SDK.Quiz.deleteQuiz((err, data) => {
 
-                if (err && err.xhr.status === 401) {
-                    $(".form-group").addClass("Der opstod en fejl");
-                }
-                else if (err) {
-                    console.log("fejl")
-                }
-                else {
-                    window.location.href = "showQuizzes.html";
+                    if (err && err.xhr.status === 401) {
+                        $(".form-group").addClass("Der opstod en fejl");
+                    }
+                    else if (err) {
+                        console.log("fejl")
+                    }
+                    else {
+                        window.location.href = "showQuizzes.html";
 
-                }
-            });
+                    }
+                });
+            } else {
+                alert("DU har ikke rettigheder til denne handling");
+            }
+
         });
 
     });
 
-
+    //Metode til at logge ud
     $("#logout-button").click(() => {
+        const userId = SDK.Storage.load("userId");
         SDK.User.logout(userId, (err, data) => {
             if (err && err.xhr.status === 401) {
                 $(".form-group").addClass("Der opstod en fejl");
@@ -88,5 +96,3 @@ $(document).ready(() => {
     });
 
 });
-
-
