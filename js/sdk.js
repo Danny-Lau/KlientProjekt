@@ -85,20 +85,21 @@ const SDK = {
 
 
         current: () => {
-            return SDK.Storage.load("userId"),
-                SDK.Storage.load("username"),
+            return SDK.Storage.load("userId");
+                SDK.Storage.load("username");
                 SDK.Storage.load("type");
 
         },
 
         logout: (userId, cb) => {
             SDK.request({
+                data:{ userId: userId
+                },
                 url: "/user/logout",
                 method: "POST",
-                data: userId
 
             }, (err, data) => {
-                if (err) return cb(err);
+
 
                 cb(err, data);
 
@@ -171,8 +172,20 @@ const SDK = {
 
         },
 
-    },
+        deleteQuiz:(cb) => {
+            const quizId = SDK.Storage.load("deleteId");
+            SDK.request({
+                headers: { authorization: SDK.Storage.load("token") },
+                url: "/quiz/" + quizId,
+                method: "DELETE"
+            }, (err, data) => {
 
+                cb(null, data);
+            });
+
+            },
+
+    },
 
     Option: {
         createOption: (option, optionToQuestionId, isCorrect,  cb) => {

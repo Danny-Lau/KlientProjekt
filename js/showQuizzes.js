@@ -32,6 +32,7 @@ $(document).ready(() => {
                     <div class="row">
                         <div class="col-lg-8 text-right">
                             <button class="btn btn-success quiz-btn" data-quiz-id="${quiz.quizId}">Start quiz</button>
+                            <button class="btn btn-success deleteQuiz-btn" data-delete-quiz-id="${quiz.quizId}">Slet quiz</button>
                         </div>
                     </div>
                 </div>
@@ -46,6 +47,25 @@ $(document).ready(() => {
             SDK.Storage.persist("currentQuiz", currentQuizId);
             window.location.href = "startQuiz.html";
 
+        });
+
+        $(".deleteQuiz-btn").click(function() {
+            const deleteQuizId = $(this).data("delete-quiz-id");
+            SDK.Storage.persist("deleteId", deleteQuizId);
+
+            SDK.Quiz.deleteQuiz((err, data) => {
+
+                if (err && err.xhr.status === 401) {
+                    $(".form-group").addClass("Der opstod en fejl");
+                }
+                else if (err) {
+                    console.log("fejl")
+                }
+                else {
+                    window.location.href = "showQuizzes.html";
+
+                }
+            });
         });
 
     });

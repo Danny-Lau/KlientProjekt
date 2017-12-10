@@ -4,7 +4,7 @@ $(document).ready(() => {
     SDK.Course((err, data) => {
 
         let $cList = $("#cList");
-        let courses = JSON.parse(data)
+        let courses = JSON.parse(data);
 
         courses.forEach((course) =>{
             const courseHTML =` 
@@ -30,10 +30,18 @@ $(document).ready(() => {
 
         });
 
+        const userType = SDK.Storage.load("type");
         $(".course-btn").click (function() {
-            const newCourseId = $(this).data("course-id");
-            SDK.Storage.persist("newCourseId", newCourseId);
-            window.location.href = "createDescription.html";
+
+            if (userType == 1) {
+                const newCourseId = $(this).data("course-id");
+                SDK.Storage.persist("newCourseId", newCourseId);
+                window.location.href = "createDescription.html";
+            }
+            else {
+                alert("Du har desværre ikke rettigheder til denne handling. " +
+                    "\nDet er kun Administratorer der kan tilgå denne handling");
+            }
 
         });
 

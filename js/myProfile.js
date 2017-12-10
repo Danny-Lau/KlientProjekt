@@ -1,7 +1,7 @@
 $(document).ready(() => {
 
-    const currentUser = SDK.User.current();
-    const userId = currentUser.userId;
+    const userId = SDK.Storage.load("userId");
+   // const userId = currentUser.userId;
 
     SDK.User.loadUser((err, data) => {
 
@@ -26,7 +26,9 @@ $(document).ready(() => {
     });
 
     $("#logout-button").click(() => {
-        SDK.User.logout(userId, (err,data) => {
+
+        const userId = SDK.Storage.load("userId");
+        SDK.User.logout(userId, (err) => {
             if (err && err.xhr.status === 401) {
                 $(".form-group").addClass("Der opstod en fejl");
             }
